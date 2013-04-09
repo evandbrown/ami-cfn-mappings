@@ -7,7 +7,7 @@
   },
   "page_action" :
   {
-    "default_icon" : "aws.png",
+    "default_icon" : "ami.png",
     "default_title" : "Convert AMIs on this page to a CloudFormation Mappings section",
 		"default_popup" : "popup.html"
   },
@@ -23,8 +23,8 @@
     }
   ],
 	"icons" : {
-    "48" : "aws.png",
-    "128" : "aws.png"
+    "48" : "ami.png",
+    "128" : "ami.png"
   },
   "manifest_version": 2
 }
