@@ -7,7 +7,7 @@ function getMappings() {
 	mappings = 
 	{
 		"Mappings" : {
-			"RegionMap" : {
+			"AWSRegion2AMI" : {
 
 			}
 		}
