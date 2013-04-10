@@ -7,7 +7,7 @@ function getMappings() {
 	mappings = 
 	{
 		"Mappings" : {
-			"AWSRegion2AMI" : {
+			"AWSRegionToAMI" : {
 
 			}
 		}
@@ -26,7 +26,7 @@ function getMappings() {
 		ami = { "AMI" : amiRegex.exec(href)[1] };
 
 		// Append a mapping for this AMI and Region
-		mappings.Mappings.RegionMap[region] = ami;	
+		mappings.Mappings.AWSRegionToAMI[region] = ami;	
 	});
 	
 	return mappings;
