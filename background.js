@@ -1,5 +1,13 @@
-// Executed when a request is passed from a contentscript, which
-// will pass a mappings object to this background script
+/**
+  * This background script allows the extension to receive notifications
+  * when the content script is executed on the relevant AMI pages. The
+  * content page will publish a message to the event listener defined
+  * in this background script. The message will be stored in a global
+  * variable ('mappings') that can be accessed by the popup script and
+  * used to draw the mappings.
+  **/ 
+
+// Event handler
 function onRequest(request, sender, sendResponse) {
   // Show the page action for the tab that the sender (content script)
   // was on.
@@ -12,7 +20,7 @@ function onRequest(request, sender, sendResponse) {
   sendResponse({});
 };
 
-// Listen for the content script to send a message to the background page.
+// Register event handler
 chrome.extension.onRequest.addListener(onRequest);
 
 // Initialize an empty mappings object. This object
