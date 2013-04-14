@@ -1,4 +1,4 @@
-This simple Chrome extension adds an icon (i.e., a Page Action) inside the address bar when you browse an Amazon Machine Image via http://aws.amazon.com/amis. Clicking the icon reveals a popup with the AMI IDs for each region in a Mappings format that may be pasted into a CloudFormation template for quick lookup.
+This simple Chrome extension adds an icon (i.e., a Page Action) inside the address bar when you browse an Amazon Machine Image via http://aws.amazon.com/amis or http://aws.amazon.com/amazon-linux-ami/. Clicking the icon reveals a popup with the AMI IDs for each region in a Mappings format that may be pasted into a CloudFormation template for quick lookup.
 
 # Installation
 1. Download ami-cfn-mappings.crx
