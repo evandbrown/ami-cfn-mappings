@@ -4,23 +4,26 @@
     <title>AMI Mappings</title>
     <style>
       body {
-        min-width: 357px;
+        min-width: 400px;
         overflow-x: hidden;
       }
-
-      img {
-        margin: 5px;
-        border: 2px solid black;
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-      }
+	
+	  #mappings {
+		min-width: 400px;
+	  }
+	
+	  pre {
+		border-top: solid 1px #ccc;
+	    margin-top: 6px;
+	    padding-top: 0;	
+	  }
     </style>
 	<script src="jquery.min.js"></script>
 	<script src="popup.js"></script>
   </head>
   <body>
-	<pre id="mappings"></pre>
+	<select id="mappings"></select>
+	<pre id="mappingCfn"></pre>
   </body>
 </html>
 
