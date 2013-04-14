@@ -7,6 +7,7 @@ This simple Chrome extension adds an icon (i.e., a Page Action) inside the addre
 
 # Install from source
 1. Clone this repository
+
 		git clone https://github.com/evandbrown/ami-cfn-mappings.git
 2. Open the Extensions panel in Chrome Settings
 3. Enable Developer Mode by ticking the 'Developer Mode' checkbox
