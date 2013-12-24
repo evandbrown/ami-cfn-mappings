@@ -22,6 +22,8 @@ function getMappingsObject(mappingName, mappingDesc, regionToAmiList) {
 // Build an object of region->AMI mappings that's compatible
 // with the CloudFormation mapping structure
 function getMappingsFromAmisPage() {
+	//console.log('getMappingsFromAmisPage');
+
 	// List for holding region->ami pairs
 	var regionToAmi = [];
 
@@ -43,6 +45,8 @@ function getMappingsFromAmisPage() {
 // Build an object of region->AMI mappings from the
 // Amazon Linux landing page
 function getMappingsFromALinuxLandingPage() {
+	//console.log('getMappingsFromALinuxLandingPage');
+	
 	//Stub out a Mappings object and other vars
 	var mappings = [],
 			regionToAmi = [],
@@ -53,7 +57,9 @@ function getMappingsFromALinuxLandingPage() {
 			amiTd;
 
 	// Locate the AMI table
-	var amiTable = $('h1:contains("Amazon Linux AMI IDs")').next();
+	var amiTable = $('h1:contains("Amazon Linux AMI IDs")').next().next();
+	//console.log('getMappingsFromALinuxLandingPage : amiTable');
+	//console.log(amiTable.text());
 
 	// Get each column, which indicates Storage/Arch/VirtType of an AMI. 
 	// Each column will correspond to an AMI
@@ -61,22 +67,33 @@ function getMappingsFromALinuxLandingPage() {
 		// Rest the array of region->ami items
 		regionToAmi = [];
 		
-		// Ignore the first col
-		if(0 != col) { 
+		//console.log('col'); console.log(col);
+		//console.log('td '); console.log(td);
+		
+		// Ignore the first col and the last one (marketplace)
+		if(0 != col && 8 != col) { 
 			desc = $(td).text();
+			console.log('text'); console.log(desc);
 			
 			// Iterate through each row for for this column
 			$(amiTable).find('tbody > tr').each(function(row, tr) {
+				
+				//console.log('row'); console.log(row);
+				//console.log('tr '); console.log(tr);
+
 				// Ignore the first row
 				if(0 != row) {
+					
 					offset = col + 1;
 					amiTd = $(tr).find('td:nth-child('+offset+')');
+					
 					if($(amiTd).children().size() > 0) {
 						href = $(amiTd).children('a').attr('href');
 						
 						// Append a mapping for this AMI and Region
 						regionToAmi.push( { region : getRegionFromHref(href), ami : getAmiIdFromHref(href) } );
 					}
+					
 				}
 			});
 			
@@ -91,13 +108,15 @@ function getMappingsFromALinuxLandingPage() {
 // Return the region code (e.g., us-east-1) from the href
 // of a link on aws.amazon.com
 function getRegionFromHref(href) {
+	//console.log('getRegionFromHref : ' + href);
 	var regionRegex = /\?region=(.*)#/;
 	return regionRegex.exec(href)[1];
 }
 
 // Return the AMI ID from the href of a link on aws.amazon.com
 function getAmiIdFromHref(href) {
-	amiRegex = /launchAmi=(ami-[a-h0-9]+)/;
+	//console.log('getAmiIdFromHref : ' + href);
+	amiRegex = /LaunchInstanceWizard:ami=(ami-[a-h0-9]+)/;
 	return amiRegex.exec(href)[1];
 }
 
