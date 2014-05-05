@@ -57,13 +57,13 @@ function getMappingsFromALinuxLandingPage() {
 			amiTd;
 
 	// Locate the AMI table
-	var amiTable = $('h1:contains("Amazon Linux AMI IDs")').next().next();
+	var amiTable = $('div.aws-table').children().first();
 	//console.log('getMappingsFromALinuxLandingPage : amiTable');
-	//console.log(amiTable.text());
+	//console.log('table content : ' + amiTable.text());
 
 	// Get each column, which indicates Storage/Arch/VirtType of an AMI. 
 	// Each column will correspond to an AMI
-	$(amiTable).find('tbody > tr:first > td').each(function(col, td) {
+	$(amiTable).find('tbody > tr:first > th').each(function(col, td) {
 		// Rest the array of region->ami items
 		regionToAmi = [];
 		
@@ -73,7 +73,7 @@ function getMappingsFromALinuxLandingPage() {
 		// Ignore the first col and the last one (marketplace)
 		if(0 != col && 8 != col) { 
 			desc = $(td).text();
-			console.log('text'); console.log(desc);
+			//console.log('text'); console.log(desc);
 			
 			// Iterate through each row for for this column
 			$(amiTable).find('tbody > tr').each(function(row, tr) {

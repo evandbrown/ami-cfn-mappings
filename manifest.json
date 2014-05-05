@@ -17,8 +17,8 @@
       "matches" : [
         "https://aws.amazon.com/amis/*",
         "http://aws.amazon.com/amis/*",
-				"https://aws.amazon.com/amazon-linux-ami/",
-				"http://aws.amazon.com/amazon-linux-ami/"
+		"https://aws.amazon.com/amazon-linux-ami/",
+		"http://aws.amazon.com/amazon-linux-ami/"
       ],
       "js" : ["jquery.min.js", "contentscript.js"],
       "run_at" : "document_idle",
