@@ -1,6 +1,6 @@
 {
   "name" : "AMI Mappings Generator",
-  "version" : "1.1",
+  "version" : "1.2",
   "manifest_version": 2,
   "description": "Generate an AMI Mappings section for a CloudFormation template using the AMIs available on select aws.amazon.com pages.",
   "background" : {
@@ -15,10 +15,8 @@
   "content_scripts" : [
     {
       "matches" : [
-        "https://aws.amazon.com/amis/*",
-        "http://aws.amazon.com/amis/*",
-		"https://aws.amazon.com/amazon-linux-ami/",
-		"http://aws.amazon.com/amazon-linux-ami/"
+		    "https://aws.amazon.com/amazon-linux-ami/",
+	    	"http://aws.amazon.com/amazon-linux-ami/"
       ],
       "js" : ["jquery.min.js", "contentscript.js"],
       "run_at" : "document_idle",
